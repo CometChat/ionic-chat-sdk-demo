@@ -1,0 +1,31 @@
+page-home {
+    .cometchat_logodiv {
+        width: 100%;
+        text-align: center;
+        margin-top: 50px;
+        margin-bottom: 30px;
+    }
+    ion-row{        
+     margin-bottom: 20px;
+    }
+    .loader {
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #242222;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        margin-top: 35px;
+        animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+}

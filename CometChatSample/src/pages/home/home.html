@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      CometChat Ionic Sample App
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="cometchat_logodiv">
+    <ion-avatar class="cometchat_logo" width="150" height="150">
+      <ion-img width="150" height="150" src="assets/imgs/logo.png"></ion-img>
+    </ion-avatar>
+    <div class="loader" *ngIf="isLoading">
+    </div>
+  </div>
+  <ion-list>
+    <ion-row>
+      <button ion-button color="primary" block [disabled]="disableInitialize" (click)="initializeChat()">Initialize CometChat</button>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button color="primary" block [disabled]="disableSuperHero1" (click)="login(UID1)">Login As
+          <br/> SuperHero1</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button color="primary" block [disabled]="disableSuperHero2" (click)="login(UID2)">Login As
+          <br/>SuperHero2</button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <button ion-button color="primary" block [disabled]="disableLaunch" (click)="launchChat()">Launch CometChat</button>
+    </ion-row>
+  </ion-list>
+</ion-content>
