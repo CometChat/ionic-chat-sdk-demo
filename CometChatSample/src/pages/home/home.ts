@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import {Injectable, ChangeDetectorRef } from '@angular/core';
+import { ChangeDetectorRef } from '@angular/core';
+import { FCM } from '@ionic-native/fcm';
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
 
-declare var CCCometChat : any;
+declare var CCCometChat: any;
 
 @Component({
   selector: 'page-home',
@@ -11,7 +13,7 @@ declare var CCCometChat : any;
 export class HomePage {
 
   licenseKey: string = "COMETCHAT-XXXXX-XXXXX-XXXXX-XXXXX"; // Replace the value with your CometChat License Key;
-  apiKey: string = "xxxxxxxxxxxxxxxxxxxxxx"; // Replace the value with your CometChat Api Key;
+  apiKey: string = "xxxxxxxxxxxxxxxxxxx"; // Replace the value with your CometChat Api Key;
   UID1: string = "SUPERHERO1";
   UID2: string = "SUPERHERO2";
 
@@ -20,19 +22,19 @@ export class HomePage {
   disableSuperHero1: boolean = true;
   disableSuperHero2: boolean = true;
   disableLaunch: boolean = true;
-  constructor(private ref: ChangeDetectorRef) {
+  constructor(private ref: ChangeDetectorRef, public statusBar: StatusBar, public splashScreen: SplashScreen, public fcm: FCM) {
 
   }
 
   initializeChat() {
-    var __this = this;
     this.showLoader();
     this.disableInitialize = true;
-    CCCometChat.initializeCometChat("", this.licenseKey, this.apiKey, true,  response => {
+
+    CCCometChat.initializeCometChat("", this.licenseKey, this.apiKey, true, response => {
       alert("Inside Success Callback " + response);
-      __this.disableLogins(false);
-      __this.showLoader(false);
-      __this.ref.detectChanges();
+      this.disableLogins(false);
+      this.showLoader(false);
+      this.ref.detectChanges();
     }, error => {
       alert("Fail Callback " + error);
       this.disableInitialize = false;
@@ -41,31 +43,102 @@ export class HomePage {
   }
 
   login(UID) {
-    var __this = this;
     this.showLoader(false);
     this.disableLogins();
-    CCCometChat.loginWithUID(UID, function success(response) {
+    CCCometChat.loginWithUID(UID, response => {
       alert("Logged in as : " + UID + " Response : " + response);
-      __this.disableLaunch = false;
-      __this.showLoader(false);
-    }, function failure(error) {
+      this.disableLaunch = false;
+      this.showLoader(false);
+    }, error => {
       alert("Login failure Callback " + error);
-      __this.disableLogins(false);
-      __this.showLoader(false);
+      this.disableLogins(false);
+      this.showLoader(false);
     });
   }
 
   launchChat() {
-    var __this = this;
     var isFullScreen = true;
     this.showLoader(true);
-    CCCometChat.launchCometChat(isFullScreen, function success(data) {
-      alert(" success " + data);
-      __this.showLoader(false);
+    alert("Launching CometChat");
+    CCCometChat.launchCometChat(isFullScreen, data => {
 
-    }, function error(data) {
+      CCCometChat.getPlatform(currentplatform => {
+
+        if (currentplatform.platform == "Android") {
+          data = JSON.parse(data);
+          if (data.hasOwnProperty('userInfoCallback')) {
+
+            this.fcm.subscribeToTopic(data.userInfoCallback.push_channel);
+            this.fcm.onNotification().subscribe(data => {
+              if (data.wasTapped) {
+                console.log("Received in background" + JSON.stringify(data));
+
+              } else {
+                console.log("Received in foreground" + JSON.stringify(data));
+              };
+
+            });
+          } else if (data.hasOwnProperty('chatroomInfoCallback')) {
+
+            if (data.chatroomInfoCallback.hasOwnProperty('action') && data.chatroomInfoCallback.action != "" && data.chatroomInfoCallback.action == "join") {
+              this.fcm.subscribeToTopic(data.chatroomInfoCallback.push_channel);
+              this.fcm.onNotification().subscribe(data => {
+                if (data.wasTapped) {
+                  console.log("Received in background" + JSON.stringify(data));
+
+                } else {
+                  console.log("Received in foreground" + JSON.stringify(data));
+                };
+
+              });
+            }
+
+          }
+
+        } else {
+
+          data = JSON.stringify(data);
+          data = JSON.parse(data);
+          this.fcm.subscribeToTopic("iossacredgamesstarted12345678901");
+          if (data.hasOwnProperty('userInfoCallback')) {
+            this.fcm.subscribeToTopic(data.userInfoCallback.push_channel);
+            this.fcm.onNotification().subscribe(data => {
+              if (data.wasTapped) {
+                console.log("Received in background" + JSON.stringify(data));
+
+              } else {
+                console.log("Received in foreground" + JSON.stringify(data));
+              };
+
+            });
+          } else if (data.hasOwnProperty('chatroomInfoCallback')) {
+
+            if (data.chatroomInfoCallback.hasOwnProperty('action') && data.chatroomInfoCallback.action != "" && data.chatroomInfoCallback.action == "join") {
+              this.fcm.subscribeToTopic(data.chatroomInfoCallback.push_channel);
+              this.fcm.onNotification().subscribe(data => {
+                if (data.wasTapped) {
+                  console.log("Received in background" + JSON.stringify(data));
+
+                } else {
+                  console.log("Received in foreground" + JSON.stringify(data));
+                };
+
+              });
+            }
+
+          }
+
+
+        }
+
+      });
+
+
+      this.showLoader(false);
+
+    }, data => {
       alert(" fail " + data);
-      __this.showLoader(false);
+      this.showLoader(false);
     });
   }
 

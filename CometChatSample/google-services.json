@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "2776904930",
+    "firebase_url": "https://cometchat-86291.firebaseio.com",
+    "project_id": "cometchat-86291",
+    "storage_bucket": "cometchat-86291.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:2776904930:android:b792c734922b3d57",
+        "android_client_info": {
+          "package_name": "com.inscripts.cometchat.dev1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "2776904930-b6ketngogjru7jrsh6e4jp39q5kvklkn.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "2776904930-b6ketngogjru7jrsh6e4jp39q5kvklkn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAydpyxmhCbwdmSB-rtOQjJDH01n_HY16g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
