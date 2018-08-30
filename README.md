@@ -25,6 +25,21 @@ Please Note: As CometChat Ionic plugin makes use if Cocoapods, please make sure 
 <br/>
 `ionic cordova run ios`
 
+# For Push Notification
+
+1. For push Notication in the Sample App , Kindly replace the the google-services.json and GoogleService-Info.plist respectively.Similarly, add the GoogleService-Info.plist file to YOUR_PROJECT/platforms/ios/ folder.
+2. If you need to implement the Firebase Push Notication using the cordova-plugin-fcm in your project then kindly follow the below procedure :
+  a. Add the CometChat Plugin into your App using below Command:  
+     `ionic cordova plugin add cordova-plugin-cccometchat`.
+  b. Add the FCM Plugin into your App using below Command: 
+      `ionic cordova plugin add cordova-plugin-fcm`
+  c. Replace the cordova-plugin-fcm folder of your project with the cordova-plugin-fcm folder of CometChat Sample project.
+  d. Add the respective platfrom i.e Android and/or iOS using below Command:
+      `ionic cordova platform add android`
+      `ionic cordova platform add iOS`
+3. Sometimes there might be issues with ionic ios for pod installation, then you can navigate to the platform/ios directory of your project and run the update command :
+` pod update`
+
 # Please Note:
 
 CometChat ionic plugin only supports the Android and iOS platforms.
