@@ -13,7 +13,7 @@ declare var CCCometChat: any;
 export class HomePage {
 
   licenseKey: string = "COMETCHAT-XXXXX-XXXXX-XXXXX-XXXXX"; // Replace the value with your CometChat License Key;
-  apiKey: string = "xxxxxxxxxxxxxxxxxxx"; // Replace the value with your CometChat Api Key;
+  apiKey: string = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"; // Replace the value with your CometChat Api Key;
   UID1: string = "SUPERHERO1";
   UID2: string = "SUPERHERO2";
 
