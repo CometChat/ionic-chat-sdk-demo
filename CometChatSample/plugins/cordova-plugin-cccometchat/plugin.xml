@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-cccometchat" version="7.11.0" 
+	xmlns="http://apache.org/cordova/ns/plugins/1.0" 
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<name>CCCometChat</name>
+	<description>The CometChat plugin to integrate chat in your app</description>
+	<license>Apache 2.0</license>
+	<keywords>cordova,CCCometChat</keywords>
+	<repo />
+	<issue />
+	<js-module name="CCCometChat" src="www/CCCometChat.js">
+		<clobbers target="CCCometChat" />
+	</js-module>
+
+	<engines>
+		<engine name="cordova-android" version=">=7.0.0" />
+		<engine name="cordova-ios" version=">=3.3.*" />
+	</engines>
+
+	<platform name="android">
+		<edit-config file="AndroidManifest.xml" target="/manifest/application" mode="merge">
+			<application android:allowBackup="false"/>
+		</edit-config>
+
+		<edit-config parent="/*" target="res/xml/config.xml">
+			<feature name="CCCometChat">
+				<param name="android-package" value="CCCometChat" />
+				<param name="onload" value="true" />
+			</feature>
+		</edit-config>
+
+		<config-file parent="/*" target="AndroidManifest.xml">
+
+
+			<uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+			<uses-permission android:name="android.permission.INTERNET" />
+			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+			<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+			<uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+			<uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
+			<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+			<uses-permission android:name="android.permission.CAMERA" />
+			<uses-permission android:name="android.permission.RECORD_AUDIO" />
+			<uses-permission android:name="android.permission.WAKE_LOCK" />
+			<uses-permission android:name="android.permission.VIBRATE" />
+			<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+			<uses-permission android:name="android.permission.READ_CONTACTS" />
+			<uses-permission android:name="android.permission.GET_ACCOUNTS" />
+			<uses-permission android:name="android.permission.SEND_SMS" />
+			<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+			<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+			<uses-permission android:name="android.permission.USE_CREDENTIALS" />
+			<uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+			<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+		</config-file>
+		<source-file src="src/android/CCCometChat.java" target-dir="src/" />
+		<framework custom="true" src="src/android/CCCometChat.gradle" type="gradleReference" />
+	</platform>
+
+
+
+
+	<platform name="ios">
+		<config-file parent="/*" target="config.xml">
+			<feature name="CCCometChat">
+				<param name="ios-package" value="CCCometChat" />
+			</feature>
+		</config-file>
+
+		<header-file src="src/ios/CCCometChat.h"/>
+		<source-file src="src/ios/CCCometChat.m"/>
+
+		<framework src="MessageSDKFramework" type="podspec" spec="~>7.10.1" />
+		<framework src="cometchat-ui" type="podspec" spec="~>7.10.1" />
+
+
+		<framework src="Firebase" type="podspec" spec="~>5.7.0" />
+		<framework src="Firebase/Auth" type="podspec" spec="~>5.7.0" />
+		<framework src="Firebase/Messaging" type="podspec" spec="~>5.7.0" />
+		<framework src="Firebase/Database" type="podspec" spec="~>5.7.0" />
+		<framework src="libz.1.1.3.tbd"/>
+		<framework src="libxml2.2.tbd"/>
+		<framework src="libsqlite3.0.tbd"/>
+
+	</platform>
+</plugin>

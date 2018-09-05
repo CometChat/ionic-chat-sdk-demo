@@ -1,0 +1,69 @@
+{
+  "_from": "cordova-plugin-cccometchat",
+  "_id": "cordova-plugin-cccometchat@7.11.0",
+  "_inBundle": false,
+  "_integrity": "sha512-ULmc5iC+GePnDiHQtGQF8SDH1imAPcd4wrF6YFyfu/VNKhoFL5/kuJT3ivOPn2MubhEJrmgmAh22c1Rq27ml2w==",
+  "_location": "/cordova-plugin-cccometchat",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-plugin-cccometchat",
+    "name": "cordova-plugin-cccometchat",
+    "escapedName": "cordova-plugin-cccometchat",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-cccometchat/-/cordova-plugin-cccometchat-7.11.0.tgz",
+  "_shasum": "e27992b600136b1ac2e5c66c5622960f7ee31cb7",
+  "_spec": "cordova-plugin-cccometchat",
+  "_where": "/Users/ketanyekale/htdocs/comet/ionic-chat-sdk-demo/CometChatSample",
+  "author": {
+    "name": "Inscripts"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-cccometchat",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "dependencies": {},
+  "deprecated": false,
+  "description": "The CometChat plugin to integrate chat in your app",
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-semistandard": "^11.0.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-node": "^5.0.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1"
+  },
+  "engines": [
+    {
+      "name": "cordova-android",
+      "version": ">=7.0.0"
+    },
+    {
+      "name": "cordova-ios",
+      "version": ">=3.3.*"
+    }
+  ],
+  "keywords": [
+    "cordova",
+    "CCCometChat",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "license": "2.0",
+  "name": "cordova-plugin-cccometchat",
+  "version": "7.11.0"
+}

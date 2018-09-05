@@ -1,0 +1,53 @@
+
+repositories{
+  jcenter()
+  flatDir{
+      dirs 'libs'
+   }
+   maven{
+    url 'https://dl.bintray.com/cometchat/CometChat'
+   }
+
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+      compile 'com.inscripts:CometChat:7.11.0'
+      compile 'com.inscripts:CometChatUI:7.11.0'
+      compile ('com.android.volley:volley',{
+            exclude group: 'com.android.volley:volley'
+      })
+      compile ('com.github.bumptech.glide:glide:4.1.1',{
+         exclude group: "com.android.support"
+      })
+}
+
+android {
+  packagingOptions {
+          exclude 'META-INF/DEPENDENCIES.txt'
+          exclude 'META-INF/LICENSE.txt'
+          exclude 'META-INF/NOTICE.txt'
+          exclude 'META-INF/NOTICE'
+          exclude 'META-INF/LICENSE'
+          exclude 'META-INF/DEPENDENCIES'
+          exclude 'META-INF/notice.txt'
+          exclude 'META-INF/license.txt'
+          exclude 'META-INF/dependencies.txt'
+          exclude 'META-INF/LGPL2.1'
+      }
+   defaultConfig {
+          multiDexEnabled true
+      }
+       dexOptions {
+          incremental true
+          javaMaxHeapSize "2048M"
+      }
+             buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+
+
+}
+
