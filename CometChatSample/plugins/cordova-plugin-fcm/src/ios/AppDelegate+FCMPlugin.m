@@ -196,7 +196,6 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
     
-    NSLog(@" Apna Notification ");
     
     UIApplicationState state = [[UIApplication sharedApplication] applicationState];
     if (state == UIApplicationStateBackground || state == UIApplicationStateInactive) {
@@ -222,7 +221,6 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
     
-    NSLog(@" Apna  2 Notification ");
     // Short-circuit when actually running iOS 10+, let notification centre methods handle the notification.
     if (NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_9_x_Max) {
         return;

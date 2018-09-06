@@ -99,7 +99,6 @@ export class HomePage {
 
           data = JSON.stringify(data);
           data = JSON.parse(data);
-          this.fcm.subscribeToTopic("iossacredgamesstarted12345678901");
           if (data.hasOwnProperty('userInfoCallback')) {
             this.fcm.subscribeToTopic(data.userInfoCallback.push_channel);
             this.fcm.onNotification().subscribe(data => {
