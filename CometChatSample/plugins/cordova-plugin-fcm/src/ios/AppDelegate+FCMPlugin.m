@@ -44,7 +44,10 @@ readyUIFIle *readyUI;
 {
     Method original =  class_getInstanceMethod(self, @selector(application:didFinishLaunchingWithOptions:));
     Method custom =    class_getInstanceMethod(self, @selector(application:customDidFinishLaunchingWithOptions:));
+//    Method original1 = class_getClassMethod(self, @selector(application:didReceiveRemoteNotification:));
+//    Method custom1 = class_getClassMethod(self, @selector(application:customDidReceiveRemoteNotification:));
     method_exchangeImplementations(original, custom);
+//    method_exchangeImplementations(original1, custom1);
 }
 
 - (BOOL)application:(UIApplication *)application customDidFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -140,6 +143,24 @@ readyUIFIle *readyUI;
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center
 didReceiveNotificationResponse:(UNNotificationResponse *)response
          withCompletionHandler:(void (^)())completionHandler {
+    NSLog(@"herhhehe %@",response.notification.request.content.userInfo);
+    
+    UIApplicationState state = [[UIApplication sharedApplication] applicationState];
+    if (state == UIApplicationStateBackground || state == UIApplicationStateInactive) {
+        NSString *metadata = [response.notification.request.content.userInfo objectForKey:@"m"];
+        
+        NSData *data = [metadata dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        NSString *type= [response.notification.request.content.userInfo objectForKey:@"t"];
+        if ([type isEqualToString:@"O"]) {
+            NSDictionary *userInfo1 = @{@"pushNotifData":jsonData,@"TAG":@"0"};
+            [readyUI launchCometChatThroughPushNotification:userInfo1];
+        }
+        else if([type isEqualToString:@"C"]){
+            NSDictionary *userInfo2 = @{@"pushNotifData":jsonData,@"TAG":@"1"};
+            [readyUI launchCometChatThroughPushNotification:userInfo2];
+        }
+    }
     NSDictionary *userInfo = response.notification.request.content.userInfo;
     if (userInfo[kGCMMessageIDKey]) {
         NSLog(@"Message ID 2: %@", userInfo[kGCMMessageIDKey]);
@@ -175,9 +196,12 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
     
+    NSLog(@" Apna Notification ");
+    
     UIApplicationState state = [[UIApplication sharedApplication] applicationState];
     if (state == UIApplicationStateBackground || state == UIApplicationStateInactive) {
         NSString *metadata = [userInfo objectForKey:@"m"];
+        
         NSData *data = [metadata dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         NSString *type= [userInfo objectForKey:@"t"];
@@ -197,6 +221,8 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
+    
+    NSLog(@" Apna  2 Notification ");
     // Short-circuit when actually running iOS 10+, let notification centre methods handle the notification.
     if (NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_9_x_Max) {
         return;
