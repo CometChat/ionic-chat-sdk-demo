@@ -40,7 +40,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         // message, here is where that should be initiated. See sendNotification method
         // below.
         Log.d(TAG, "==> MyFirebaseMessagingService onMessageReceived");
-        boolean isCloseWindowEnabled = false
+        boolean isCloseWindowEnabled = false;
         CCNotificationHelper.processCCNotificationData(this, remoteMessage, isCloseWindowEnabled,
                 android.support.v4.R.drawable.notification_action_background,
                 android.support.v4.R.drawable.notification_action_background);
