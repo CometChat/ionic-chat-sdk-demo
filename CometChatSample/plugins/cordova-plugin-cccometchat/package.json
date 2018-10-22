@@ -1,8 +1,8 @@
 {
   "_from": "cordova-plugin-cccometchat",
-  "_id": "cordova-plugin-cccometchat@7.11.0",
+  "_id": "cordova-plugin-cccometchat@7.17.2",
   "_inBundle": false,
-  "_integrity": "sha512-ULmc5iC+GePnDiHQtGQF8SDH1imAPcd4wrF6YFyfu/VNKhoFL5/kuJT3ivOPn2MubhEJrmgmAh22c1Rq27ml2w==",
+  "_integrity": "sha512-t+QS8LE+G7VIunzxkl4hp0DIh87IV610ccLQu+JuYLW8zWUylKkFUKzWlhxre4Rixda3RsMIHCFgjDmesqwBew==",
   "_location": "/cordova-plugin-cccometchat",
   "_phantomChildren": {},
   "_requested": {
@@ -19,10 +19,10 @@
     "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/cordova-plugin-cccometchat/-/cordova-plugin-cccometchat-7.11.0.tgz",
-  "_shasum": "e27992b600136b1ac2e5c66c5622960f7ee31cb7",
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-cccometchat/-/cordova-plugin-cccometchat-7.17.2.tgz",
+  "_shasum": "f6709d898db26660228d81b6d73742ed839e82a5",
   "_spec": "cordova-plugin-cccometchat",
-  "_where": "/Users/ketanyekale/htdocs/comet/ionic-chat-sdk-demo/CometChatSample",
+  "_where": "/Applications/MAMP/htdocs/ionic-chat-sdk-demo/CometChatSample",
   "author": {
     "name": "Inscripts"
   },
@@ -65,5 +65,5 @@
   ],
   "license": "2.0",
   "name": "cordova-plugin-cccometchat",
-  "version": "7.11.0"
+  "version": "7.17.2"
 }

@@ -63,8 +63,8 @@ var HomePage = /** @class */ (function () {
         this.statusBar = statusBar;
         this.splashScreen = splashScreen;
         this.fcm = fcm;
-        this.licenseKey = "COMETCHAT-YA8X9-JHJL4-IY8MP-ULDF5"; // Replace the value with your CometChat License Key;
-        this.apiKey = "50818xbf71435ff0cfb2a7735317c7f75b3305"; // Replace the value with your CometChat Api Key;
+        this.licenseKey = "COMETCHAT-XXXXX-XXXXX-XXXXX-XXXXX"; // Replace the value with your CometChat License Key;
+        this.apiKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"; // Replace the value with your CometChat Api Key;
         this.UID1 = "SUPERHERO1";
         this.UID2 = "SUPERHERO2";
         this.isLoading = false;
@@ -188,7 +188,7 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/ketanyekale/htdocs/comet/ionic-chat-sdk-demo/CometChatSample/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      CometChat Ionic Sample App\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <div class="cometchat_logodiv">\n    <ion-avatar class="cometchat_logo" width="150" height="150">\n      <ion-img width="150" height="150" src="assets/imgs/logo.png"></ion-img>\n    </ion-avatar>\n    <div class="loader" *ngIf="isLoading">\n    </div>\n  </div>\n  <ion-list>\n    <ion-row>\n      <button ion-button color="primary" block [disabled]="disableInitialize" (click)="initializeChat()">Initialize CometChat</button>\n    </ion-row>\n\n    <ion-row>\n      <ion-col>\n        <button ion-button color="primary" block [disabled]="disableSuperHero1" (click)="login(UID1)">Login As\n          <br/> SuperHero1</button>\n      </ion-col>\n      <ion-col>\n        <button ion-button color="primary" block [disabled]="disableSuperHero2" (click)="login(UID2)">Login As\n          <br/>SuperHero2</button>\n      </ion-col>\n    </ion-row>\n\n    <ion-row>\n      <button ion-button color="primary" block [disabled]="disableLaunch" (click)="launchChat()">Launch CometChat</button>\n    </ion-row>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/ketanyekale/htdocs/comet/ionic-chat-sdk-demo/CometChatSample/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"/Applications/MAMP/htdocs/ionic-chat-sdk-demo/CometChatSample/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      CometChat Ionic Sample App\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <div class="cometchat_logodiv">\n    <ion-avatar class="cometchat_logo" width="150" height="150">\n      <ion-img width="150" height="150" src="assets/imgs/logo.png"></ion-img>\n    </ion-avatar>\n    <div class="loader" *ngIf="isLoading">\n    </div>\n  </div>\n  <ion-list>\n    <ion-row>\n      <button ion-button color="primary" block [disabled]="disableInitialize" (click)="initializeChat()">Initialize CometChat</button>\n    </ion-row>\n\n    <ion-row>\n      <ion-col>\n        <button ion-button color="primary" block [disabled]="disableSuperHero1" (click)="login(UID1)">Login As\n          <br/> SuperHero1</button>\n      </ion-col>\n      <ion-col>\n        <button ion-button color="primary" block [disabled]="disableSuperHero2" (click)="login(UID2)">Login As\n          <br/>SuperHero2</button>\n      </ion-col>\n    </ion-row>\n\n    <ion-row>\n      <button ion-button color="primary" block [disabled]="disableLaunch" (click)="launchChat()">Launch CometChat</button>\n    </ion-row>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Applications/MAMP/htdocs/ionic-chat-sdk-demo/CometChatSample/src/pages/home/home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["j" /* ChangeDetectorRef */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_1__ionic_native_fcm__["a" /* FCM */]])
     ], HomePage);
@@ -319,7 +319,7 @@ var MyApp = /** @class */ (function () {
         });
     }
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/ketanyekale/htdocs/comet/ionic-chat-sdk-demo/CometChatSample/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/ketanyekale/htdocs/comet/ionic-chat-sdk-demo/CometChatSample/src/app/app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Applications/MAMP/htdocs/ionic-chat-sdk-demo/CometChatSample/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Applications/MAMP/htdocs/ionic-chat-sdk-demo/CometChatSample/src/app/app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_5__ionic_native_fcm__["a" /* FCM */]])
     ], MyApp);

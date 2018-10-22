@@ -63,28 +63,6 @@ public class CCCometChat extends CordovaPlugin {
                 callbackContext.error("Fail");
             }
 
-        }else if(action.equals("deleteChat"))
-        {
-
-
-            cordova.getThreadPool().execute(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        if (cometchat != null) {
-                            Object obj=args.getString(0);
-                            RemoteMessage remoteMessage= (RemoteMessage) obj;
-                            CCNotificationHelper.processCCNotificationData(context,remoteMessage,0,0);
-                        } else {
-                            callbackContext.error("CometChat not Instantiated.");
-                        }
-                    } catch (Exception e) {
-                        callbackContext.error(e.toString());
-
-                    }
-                }
-            });
-
         }else if(action.equals("initializeCometChat"))
         {
             cometchat=CometChat.getInstance(cordova.getActivity().getApplicationContext());

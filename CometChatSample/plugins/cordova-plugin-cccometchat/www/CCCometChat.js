@@ -81,12 +81,6 @@ CCCometChat.prototype.createUser = function (UID, userName, avatarUrl, profileUr
     arr[4] = role;
     exec(success, error, "CCCometChat", "createUser", arr);
 }
-CCCometChat.prototype.deleteChat = function (remoteMessage, success, error) {
-    var arr = [];
-    arr[0] = remoteMessage;
-    exec(success, error, "CCCometChat", "deleteChat", arr);
-}
-
 
 function convertBooleanToiOS(booleanValue) {
     if (booleanValue == "YES") {

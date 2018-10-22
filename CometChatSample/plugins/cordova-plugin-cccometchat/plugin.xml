@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="cordova-plugin-cccometchat" version="7.11.0" 
+<plugin id="cordova-plugin-cccometchat" version="7.17.2" 
 	xmlns="http://apache.org/cordova/ns/plugins/1.0" 
 	xmlns:android="http://schemas.android.com/apk/res/android">
 	<name>CCCometChat</name>
@@ -72,8 +72,8 @@
 		<header-file src="src/ios/CCCometChat.h"/>
 		<source-file src="src/ios/CCCometChat.m"/>
 
-		<framework src="MessageSDKFramework" type="podspec" spec="~>7.10.1" />
-		<framework src="cometchat-ui" type="podspec" spec="~>7.10.1" />
+		<framework src="MessageSDKFramework" type="podspec" spec="~>7.16.0" />
+		<framework src="cometchat-ui" type="podspec" spec="~>7.16.0" />
 
 
 		<framework src="Firebase" type="podspec" spec="~>5.7.0" />
