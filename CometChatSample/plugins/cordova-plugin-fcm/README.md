@@ -17,6 +17,8 @@ cordova plugin add cordova-plugin-fcm
 
 ```
 
+
+
 #### Firebase configuration files
 Get the needed configuration files for Android or iOS from the Firebase Console (see docs: https://firebase.google.com/docs/).
 
