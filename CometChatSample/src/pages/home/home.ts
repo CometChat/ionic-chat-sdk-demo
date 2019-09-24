@@ -48,6 +48,7 @@ export class HomePage {
     CCCometChat.loginWithUID(UID, response => {
       alert("Logged in as : " + UID + " Response : " + response);
       this.disableLaunch = false;
+      this.initChatServices();
       this.showLoader(false);
     }, error => {
       alert("Login failure Callback " + error);
@@ -55,6 +56,16 @@ export class HomePage {
       this.showLoader(false);
     });
   }
+
+  initChatServices() {
+    CCCometChat.initCometChatServices(function success(response) {
+        alert("init chat services success : " + response);
+        console.log("init chat services success : " + response);
+      }, function failure(error) {
+        alert("init chat services failure : " + error);
+        console.log("init chat services failure : " + error);
+    });
+}
 
   launchChat() {
     var isFullScreen = true;
